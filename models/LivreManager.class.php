@@ -78,10 +78,10 @@ class LivreManager extends Model
 
     public function modificationLivreBD($id, $title, $authors, $numbersOfPages, $price, $image)
     {
-        $req = '  
-        update  livres 
-        set title = "title",author = "author", numbersOfPages = "numbersOfPages",price= "price", image = "image"
-        where id = "id" ';
+        $req='UPDATE `livres` 
+                SET `title`=:title,`authors`=:author,`numbersOfPages`= :numbersOfPages,`price`=:price,`image`=:image 
+                WHERE id=:id';
+        
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":id", $id, PDO::PARAM_INT);
         $stmt->bindValue(":title", $title, PDO::PARAM_STR);
