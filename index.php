@@ -10,7 +10,7 @@ require_once "controllers/LivresControllers.controllers.php";
 $livreController = new LivresControllers;
 
 require_once "controllers/ChatsControllers.controller.php";
-$chatController = new ChatsControllers;
+$chatController = new ChatsControllers();
 
 
 try {
@@ -54,12 +54,11 @@ try {
                 require "views/inscription.view.php";
                 break;
             case "chat":
-                if (empty($url[1])) {
-                    $chatController->afficherChats();
-                } else if ($url[1] === "add") {
-                    $chatController->ajoutChat();
-                } else if ($url[1] === "validationAjout") {
-                    $chatController->ajoutChatValidation();
+                if (isset($_POST['insertchat'])) {
+                    $chatController->ajoutChat($_POST['user'],$_POST['message']);
+                    $chatController->afficherChat();
+                }else {
+                    require "views/chat.view.php";
                 }
                 break;
             default:

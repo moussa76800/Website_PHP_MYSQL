@@ -30,13 +30,13 @@ class ChatManager extends Model
     }
     
 
-    public function ajoutChatBd($user, $message)
+    public function ajoutChatdb($user, $message)
     {
         $req = "INSERT INTO chat (user,message)
-                values (:user, :message )";
+                VALUES (:user, :message )";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":title", $user, PDO::PARAM_STR);
-        $stmt->bindValue(":author", $message, PDO::PARAM_STR);
+        $stmt->bindValue(":user", $user, PDO::PARAM_STR);
+        $stmt->bindValue(":message", $message, PDO::PARAM_STR);
         $resultat = $stmt->execute();
         $stmt->closeCursor();
 

@@ -24,16 +24,16 @@ if(!empty($_SESSION['alert'])) :
 
     <?php
 
-       for ($i=0; $i< count($livres); $i++) : ?>
+       for ($i=0; $i< count($Bouquin); $i++) : ?>
         <tr>
-            <td class="align-middle"><img src="public/images/livres/<?= $livres[$i]->getImage();?>" width="60px;"></td>
-            <td class="align-middle"><a href="<?= URL ?>livres/display/<?= $livres[$i]->getId(); ?>"><?= $livres[$i]->getTitle(); ?></a></td>
-            <td class="align-middle"><?=$livres[$i]->getAuthors();?></td>
-            <td class="align-middle"><?=$livres[$i]->getNumbersOfPages();?></td>
-            <td class="align-middle"><?=$livres[$i]->getPrice();?> Euros</td>
-            <td class="align-middle"><a href="<?= URL ?>livres/modify/<?= $livres[$i]->getId(); ?>" class="btn btn-warning">Modifier</a></td>
+            <td class="align-middle"><img src="public/images/livres/<?= $Bouquin[$i]->getImage();?>" width="60px;"></td>
+            <td class="align-middle"><a href="<?= URL ?>livres/display/<?= $Bouquin[$i]->getId(); ?>"><?= $Bouquin[$i]->getTitle(); ?></a></td>
+            <td class="align-middle"><?=$Bouquin[$i]->getAuthors();?></td>
+            <td class="align-middle"><?=$Bouquin[$i]->getNumbersOfPages();?></td>
+            <td class="align-middle"><?=$Bouquin[$i]->getPrice();?> Euros</td>
+            <td class="align-middle"><a href="<?= URL ?>livres/modify/<?= $Bouquin[$i]->getId(); ?>" class="btn btn-warning">Modifier</a></td>
             <td class="align-middle">
-                <form method="POST" action="<?= URL ?>livres/delete/<?= $livres[$i]->getId(); ?>" onSubmit="return confirm('Voulez-vous vraiment supprimer le livre ?');">
+                <form method="POST" action="<?= URL ?>livres/delete/<?= $Bouquin[$i]->getId(); ?>" onSubmit="return confirm('Voulez-vous vraiment supprimer le livre ?');">
              <button class = "btn btn-danger" type="submit">Supprimer</button>
         </form></td>
            

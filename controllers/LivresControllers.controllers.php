@@ -18,7 +18,7 @@ class LivresControllers
 
     public function afficherLivres()
     {
-        $livres = $this->livreManager->getLivres();
+        $Bouquin = $this->livreManager->getLivres();
         require "views/livres.view.php";
         
     }

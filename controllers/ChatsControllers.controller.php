@@ -10,36 +10,20 @@ class ChatsControllers
 
     public function __construct()
     {
-        $this->chatManager = new ChatManager;
-        $this->chatManager->chargementChats();
+        $this->ChatManager = new ChatManager;
+        $this->ChatManager->chargementChats();
     }
 
-    public function afficherChats()
+    public function afficherChat()
     {
         $chats = $this->ChatManager->getChats();
         require "views/chat.view.php";
         
     }
 
-
-
-    public function ajoutChat()
+    public function ajoutChat($user,$message)
     {
-        require "views/chat.view.php";
-    }
-
-    public function ajoutChatValidation()
-    {
-
-       
-        $this->ChatManager->ajoutLivreBd($_POST['user'], $_POST['message']);
-
-       $_SESSION['alert']=[
-           "type"=> "sucess",
-           "msg"=> "Ajout Réalisé"
-       ];
-
-        header('Location: ' . URL . "chat");
+        $this->ChatManager->ajoutChatdb($user,$message);
     }
    
 }
