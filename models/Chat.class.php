@@ -6,6 +6,7 @@ class Chat {
     private $user;
     private $message;
 
+    public static $chats;
 
     public function __construct($id,$user,$message) {
 

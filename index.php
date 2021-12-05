@@ -9,7 +9,7 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
 require_once "controllers/LivresControllers.controllers.php";
 $livreController = new LivresControllers;
 
-require_once "controllers/chat.controller.php";
+require_once "controllers/ChatsControllers.controller.php";
 $chatController = new ChatsControllers;
 
 
@@ -55,11 +55,11 @@ try {
                 break;
             case "chat":
                 if (empty($url[1])) {
-                    $chatsController->afficherChats();
+                    $chatController->afficherChats();
                 } else if ($url[1] === "add") {
-                    $chatsController->ajoutChat();
+                    $chatController->ajoutChat();
                 } else if ($url[1] === "validationAjout") {
-                    $chatsController->ajoutChatValidation();
+                    $chatController->ajoutChatValidation();
                 }
                 break;
             default:

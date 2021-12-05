@@ -23,7 +23,7 @@ ob_start() ?>
     <?php endfor; ?>
 </table>
 
-
+<a href="<?= URL ?>chat/add" class="btn btn-success d-block">Valider</a>
 
 <br>
 
