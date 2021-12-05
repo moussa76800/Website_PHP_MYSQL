@@ -45,7 +45,10 @@ class LivresControllers
         $nomImageAjoute = $this->ajoutImage($file, $repertoire);
         $this->livreManager->ajoutLivreBd($_POST['title'], $_POST['author'], $_POST['numbersOfPages'], $_POST['price'], $nomImageAjoute);
 
-       
+       $_SESSION['alert']=[
+           "type"=> "sucess",
+           "msg"=> "Ajout Réalisé"
+       ];
 
         header('Location: ' . URL . "livres");
     }
@@ -82,7 +85,11 @@ class LivresControllers
         unlink("public/images/livres/" . $nomImage);
         $this->livreManager->suppressionLivreBD($id);
 
-        
+        $_SESSION['alert']=[
+            "type"=> "sucess",
+            "msg"=> "Suppression Réalisé"
+        ];
+ 
         header('Location: ' . URL . "livres");
     }
 
@@ -93,22 +100,25 @@ class LivresControllers
         require "views/modifierLivre.view.php";
     }
 
-
-    public function modifLivreValidation()
-    {
-        $imageActuelle = $this->livreManager->getLivreById($_POST['identifiant'])->getImage();
+    public function modificationLivreValidation(){
+        $imageActuelle = $this->livreManager->getLivreById($_POST['id'])->getImage();
         $file = $_FILES['image'];
 
-        if ($file['size'] > 0) {
-
+        if($file['size'] > 0){
             unlink("public/images/livres/".$imageActuelle);
             $repertoire = "public/images/livres/";
-            $nomImageAjoute = $this->ajoutImage($file, $repertoire);
+            $nomImageToAdd = $this->ajoutImage($file,$repertoire);
         } else {
-            $nomImageAjoute = $imageActuelle;
+            $nomImageToAdd = $imageActuelle;
         }
-        $this->livreManager->modificationLivreBD($_POST['identifiant'],$_POST['title'],$_POST['author'],$_POST['numbersOfPages'],$_POST['price'],$nomImageAjoute);
-        
+        $this->livreManager->modificationLivreBD($_POST["id"],$_POST["title"],$_POST["author"],$_POST["numbersOfPages"],$_POST["price"],$nomImageToAdd);
+       
+        $_SESSION['alert']= [
+            "type"=> "sucess",
+            "msg"=> "Modification Réalisé"
+        ];
+
         header('Location: '. URL . "livres");
     }
+    
 }

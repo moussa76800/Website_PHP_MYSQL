@@ -27,28 +27,30 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Articles</a>
                     <div class="dropdown-menu show" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 42px);" data-popper-placement="bottom-start">
-                        <a class="dropdown-item" href="<?= URL ?>livres">Livres</a>
-                        <a class="dropdown-item" href="<?= URL ?>materielsInformatiques">Matériels Informatiques</a>
-                        <a class="dropdown-item" href="<?= URL ?>materielsHifi">Matériels Hifi</a>
+                    <a class="dropdown-item" href="<?= URL ?>livres">Livres</a>
+                    <a class="dropdown-item" href="<?= URL ?>materielsInformatiques">Matériels Informatiques</a>
+                    <a class="dropdown-item" href="<?= URL ?>materielsHifi">Matériels Hifi</a>
+
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Services</a>
                     <div class="dropdown-menu show" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 42px);" data-popper-placement="bottom-start">
-                        <a class="dropdown-item" href="inscription.php">Inscription</a>
+                        <a class="dropdown-item" href="<?= URL ?>inscription">Inscription</a>
                         <a class="dropdown-item" href="seConnecter.php">Connexion</a>
                         <a class="dropdown-item" href="modifierProfil.php">Modifier son profil</a>
                         <a class="dropdown-item" href="seDeconnecter.php">Deconnexion</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Divers</a>
                     <div class="dropdown-menu show" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 42px);" data-popper-placement="bottom-start">
-                        <a class="dropdown-item" href="mini-chat.php">Mini-chat</a>
+                        <a class="dropdown-item" href="<?= URL ?>chat">Mini-chat</a>
                         <a class="dropdown-item" href="blog-news.php">Blog/News</a>
-                        
+                    </div>
                 </li>
             </ul>
         </div>
-        </div>
+
     </nav>
 
     <div class="container">
@@ -56,6 +58,8 @@
         <br>
         <br>
         <br>
+
+
         <?= $content ?>
     </div>
 

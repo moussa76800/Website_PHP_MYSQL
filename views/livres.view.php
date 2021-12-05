@@ -2,9 +2,15 @@
 
 ob_start();
 
-
+if(!empty($_SESSION['alert'])) :
     ?>
 
+
+<div class="alert alert-<?=$_SESSION['alert']['type'] ?>" role="alert">
+<?=$_SESSION['alert']['msg'] ?>
+</div>
+
+<?php endif;  ?>
 
     <table class="table text-center">
     <tr class="table-dark">
@@ -42,4 +48,5 @@ ob_start();
 $content = ob_get_clean();
 $titre = "Liste des livres";
 require "template.php";
+ 
 ?>

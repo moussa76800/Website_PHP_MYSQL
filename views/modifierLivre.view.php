@@ -30,8 +30,7 @@ ob_start() ?>
         <label for="image">Changer l'image : </label>
         <input type="file" class="form-control-file" id="image" name="image">
     </div>
-
-    <input type="hidden" name="identifiant" value="<?= $livre->getId(); ?>">
+    <input type="hidden" name="id" value="<?= $livre->getId(); ?>">
     <button type="submit" class="btn btn-primary">Valider</button>
 </form>
 
